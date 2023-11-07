@@ -28,15 +28,16 @@ public class NCDStoreLogin extends TestBase {
 		passwordInputField.sendKeys();
 	}
 
-	private void clickLoginBtn() {
+	private NCDStore clickLoginBtn() {
 		loginBtn.submit();
+		return new NCDStore();
 	}
 
-	public NCDAccountPAge loginToPortal(String email,String password) {
+	public NCDStore loginToPortal(String email,String password) {
 		enterEmail(email);
 		enterPassword(password);
-		clickLoginBtn();
-		return new NCDAccountPAge();
+		return clickLoginBtn();
+	
 		
 	}
 
