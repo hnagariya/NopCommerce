@@ -53,7 +53,7 @@ public class NCDStoreCheckoutSuccessfulTest extends TestBase {
 		register.clickContinueBtnAfterRegister();
 		ncdStoreLogin = ncdStore.clickLoginHyperlink();
 		System.out.println(ncdRegister.enterEmail);
-		ncdStoreLogin.loginToPortal(ncdRegister.enterEmail);
+		//ncdStoreLogin.loginToPortal(ncdRegister.enterEmail);
 		ncdStoreDesktops = ncdStore.mouseHoverComputerLink();
 		ncdStoreBuildYourOwnComputer = ncdStoreDesktops.clickAddTOCartBuildYourOwnComputer();
 		ncdStoreBuildYourOwnComputer.addToCartBuildYourOwnComputer();
