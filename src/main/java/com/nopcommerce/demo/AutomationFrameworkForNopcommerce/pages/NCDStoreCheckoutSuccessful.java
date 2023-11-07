@@ -14,7 +14,7 @@ public class NCDStoreCheckoutSuccessful extends TestBase {
 	@FindBy(xpath = "//strong[text()='Your order has been successfully processed!']")
 	WebElement textForsuccessfulOrder;
 
-	public String gettextForSuccessfulOrder() {
+	public String getTextForSuccessfulOrder() {
 		return textForsuccessfulOrder.getText();
 	}
 

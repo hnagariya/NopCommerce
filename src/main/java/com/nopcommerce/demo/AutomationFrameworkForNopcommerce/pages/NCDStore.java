@@ -13,7 +13,6 @@ public class NCDStore extends TestBase {
 	public NCDStore() {
 		PageFactory.initElements(wd, this);
 	}
-	Actions actions= new Actions (wd);
 
 	@FindBy(css = "div.header-links ul li:first-of-type a")
 	WebElement registerHyperlink;
@@ -23,6 +22,9 @@ public class NCDStore extends TestBase {
 
 	@FindBy(css = "a.ico-login")
 	WebElement log_inHyperlink;
+	
+	@FindBy (css="input#small-searchterms")
+	WebElement storeSearchBtn;
 
 	public NCDRegister clickRegisterHyperlink() {
 		registerHyperlink.click();
@@ -30,6 +32,7 @@ public class NCDStore extends TestBase {
 	}
 
 	public NCDStoreDesktops mouseHoverComputerLink() {
+		Actions actions= new Actions (wd);
 		actions.moveToElement(computersHyperlink).perform();;
 		actions.moveToElement(wd.findElement(By.linkText("Desktops"))).perform();
 		actions.click().perform();
@@ -39,6 +42,10 @@ public class NCDStore extends TestBase {
 	public NCDStoreLogin clickLoginHyperlink() {
 		log_inHyperlink.click();
 		return new NCDStoreLogin();
+	}
+	public void getTextOfStoreSearch() {
+		String s=storeSearchBtn.getText();
+		System.out.println(s);
 	}
 
 }

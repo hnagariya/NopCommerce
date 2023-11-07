@@ -3,11 +3,13 @@ package com.nopcommerce.demo.AutomationFrameworkForNopcommerce.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.nopcommerce.demo.AutomationFrameworkForNopcommerce.base.TestBase;
 
 public class NCDStoreBuildYourOwnComputer extends TestBase {
+
 	Select sc;
 
 	public NCDStoreBuildYourOwnComputer() {
@@ -81,11 +83,12 @@ public class NCDStoreBuildYourOwnComputer extends TestBase {
 	}
 
 	public String getSuccessMessageForAddToCart() {
+		wait.until(ExpectedConditions.visibilityOf(addTOCartSuccessMessage));
 		return addTOCartSuccessMessage.getText();
 	}
 
 	public void closeAddToCartSuccessMessage() {
-		addToCartSuccessMessageCloseBtn.click();
+		wait.until(ExpectedConditions.elementToBeClickable(addTOCartSuccessMessage)).click();
 	}
 
 	public NCDStoreShoppingCart clickShoppingCartBtn() {

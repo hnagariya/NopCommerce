@@ -7,6 +7,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.nopcommerce.demo.AutomationFramework.utils.Utils;
 import com.nopcommerce.demo.AutomationFrameworkForNopcommerce.base.TestBase;
 import com.nopcommerce.demo.AutomationFrameworkForNopcommerce.pages.NCDRegister;
 import com.nopcommerce.demo.AutomationFrameworkForNopcommerce.pages.NCDStore;
@@ -44,7 +45,7 @@ public class NCDStoreCheckoutSuccessfulTest extends TestBase {
 	}
 
 	@Test
-	public void placeOrderSuccessfully() {
+	public void validateOrderPlacedSuccessfully() {
 		ncdRegister = ncdStore.clickRegisterHyperlink();
 		register = ncdRegister.registerToPortal();
 		Assert.assertEquals(register.getTextForSuccessfulRegister(), "Your registration completed",
@@ -53,13 +54,13 @@ public class NCDStoreCheckoutSuccessfulTest extends TestBase {
 		ncdStoreLogin = ncdStore.clickLoginHyperlink();
 		System.out.println(ncdRegister.enterEmail);
 		ncdStoreLogin.loginToPortal(ncdRegister.enterEmail);
-		ncdStoreDesktops=ncdStore.mouseHoverComputerLink();
+		ncdStoreDesktops = ncdStore.mouseHoverComputerLink();
 		ncdStoreBuildYourOwnComputer = ncdStoreDesktops.clickAddTOCartBuildYourOwnComputer();
 		ncdStoreBuildYourOwnComputer.addToCartBuildYourOwnComputer();
 //		System.out.println(ncdStoreBuildYourOwnComputer.getSuccessMessageForAddToCart());
 //		Assert.assertEquals(ncdStoreBuildYourOwnComputer.getSuccessMessageForAddToCart(),
 //				"The product has been added to your shopping cart");
-//		ncdStoreBuildYourOwnComputer.closeAddToCartSuccessMessage();
+//	    ncdStoreBuildYourOwnComputer.closeAddToCartSuccessMessage();
 		ncdStoreShoppingCart = ncdStoreBuildYourOwnComputer.clickShoppingCartBtn();
 		ncdStoreCheckoutBillingAddress = ncdStoreShoppingCart.checkOutForShoppingCart();
 		ncdStoreCheckoutShippingMethod = ncdStoreCheckoutBillingAddress.checkoutForBillingAddress();
@@ -67,9 +68,13 @@ public class NCDStoreCheckoutSuccessfulTest extends TestBase {
 		ncdStoreCheckoutPaymentInfo = ncdStoreCheckoutPaymentMethod.clickContinueBtnForPaymentMethod();
 		ncdStoreCheckoutConfirmOrder = ncdStoreCheckoutPaymentInfo.successfulPaymentInfoSubmission();
 		ncdStoreCheckoutSuccessful = ncdStoreCheckoutConfirmOrder.clickConfirmBtn();
-		System.out.println(ncdStoreCheckoutSuccessful.gettextForSuccessfulOrder());
-		Assert.assertEquals(ncdStoreCheckoutSuccessful.gettextForSuccessfulOrder(),
+		System.out.println(ncdStoreCheckoutSuccessful.getTextForSuccessfulOrder());
+		Assert.assertEquals(ncdStoreCheckoutSuccessful.getTextForSuccessfulOrder(),
 				"Your order has been successfully processed!");
+		}
+	@Test
+	public void verifyStoreSearchText() {
+		ncdStore.getTextOfStoreSearch();
 	}
 
 	@AfterMethod
