@@ -13,7 +13,6 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 
@@ -52,7 +51,7 @@ public class TestBase {
 		BasicConfigurator.configure();
 		logger.setLevel(Level.INFO);
 	}
-
+	
 	public void initialisation() {
 		String browserName = prop.getProperty("browser");
 		switch (browserName) {
