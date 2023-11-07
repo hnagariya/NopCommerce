@@ -24,19 +24,20 @@ public class NCDStoreLogin extends TestBase {
 		emailInputField.sendKeys(string);
 	}
 
-	private void enterPassword() {
-		passwordInputField.sendKeys("Password1");
+	private void enterPassword(String password) {
+		passwordInputField.sendKeys();
 	}
 
-	private NCDStore clickLoginBtn() {
+	private void clickLoginBtn() {
 		loginBtn.submit();
-		return new NCDStore();
 	}
 
-	public NCDStore loginToPortal(String string) {
-		enterEmail(string);
-		enterPassword();
-		return clickLoginBtn();
+	public NCDAccountPAge loginToPortal(String email,String password) {
+		enterEmail(email);
+		enterPassword(password);
+		clickLoginBtn();
+		return new NCDAccountPAge();
+		
 	}
 
 }
