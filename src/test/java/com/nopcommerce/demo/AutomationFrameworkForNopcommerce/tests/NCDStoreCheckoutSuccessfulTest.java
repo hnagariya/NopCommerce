@@ -37,7 +37,7 @@ public class NCDStoreCheckoutSuccessfulTest extends TestBase {
 	NCDStoreCheckoutPaymentInfo ncdStoreCheckoutPaymentInfo;
 	NCDStoreCheckoutConfirmOrder ncdStoreCheckoutConfirmOrder;
 	NCDStoreCheckoutSuccessful ncdStoreCheckoutSuccessful;
-
+//to check for git fetch
 	@BeforeMethod
 	public void setUp() {
 		initialisation();
